@@ -9,11 +9,11 @@ public class MentorService : IMentorService
     private readonly TaskService taskService;
     private readonly List<Mentor> mentors;
 
-    public MentorService()
+    public MentorService(StudentService studentService, TaskService taskService)
     {
         this.mentors = new List<Mentor>();
-        this.taskService = new TaskService();
-        this.studentService = new StudentService();
+        this.taskService = taskService;
+        this.studentService = studentService;
     }
 
     public Mentor Create(Mentor mentor)

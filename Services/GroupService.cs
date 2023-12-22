@@ -53,7 +53,7 @@ public class GroupService : IGroupService
 
         var student = studentService.GetById(studentId);
 
-        group.students.Add(student);
+        group.Students.Add(student);
 
         return student;
     }
@@ -65,7 +65,7 @@ public class GroupService : IGroupService
 
         var student = studentService.GetById(studentId);
 
-        return group.students.Remove(student);
+        return group.Students.Remove(student);
     }
 
     public bool Delete(int id)
@@ -79,7 +79,7 @@ public class GroupService : IGroupService
     public List<Group> GetAll()
         => groups;
 
-    public Group GetByID(int id)
+    public Group GetById(int id)
     {
         var group = groups.FirstOrDefault(g => g.Id == id)
             ?? throw new Exception("Group with this id was not found...");
@@ -92,7 +92,7 @@ public class GroupService : IGroupService
         var group = groups.FirstOrDefault(g => g.Id == id)
             ?? throw new Exception("Group with this id was not found...");
 
-        return group.students;
+        return group.Students;
     }
 
     public Group Update(int id, Group group)

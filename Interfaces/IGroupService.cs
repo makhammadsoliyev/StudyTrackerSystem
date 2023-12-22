@@ -5,7 +5,7 @@ namespace StudyTrackerSystem.Interfaces;
 public interface IGroupService
 {
     Group Create(Group group);
-    Group GetByID(int id);
+    Group GetById(int id);
     Group Update(int id, Group group);
     bool Delete(int id);
     List<Group> GetAll();

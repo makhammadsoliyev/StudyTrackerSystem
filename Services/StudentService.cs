@@ -14,6 +14,10 @@ public class StudentService : IStudentService
 
     public Student Create(Student student)
     {
+        var existStudent = students.FirstOrDefault(s => s.Phone.Equals(student.Phone));
+        if (existStudent is not null)
+            throw new Exception("Student with this phone number already exists...");
+
         students.Add(student);
         return student;
     }

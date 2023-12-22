@@ -5,13 +5,18 @@ namespace StudyTrackerSystem.Services;
 
 public class StudentService : IStudentService
 {
+    #region Private fields
     private readonly List<Student> students;
+    #endregion
 
+    #region CTOR
     public StudentService()
     {
         students = new List<Student>();
     }
+    #endregion
 
+    #region Methods
     public Student Create(Student student)
     {
         var existStudent = students.FirstOrDefault(s => s.Phone.Equals(student.Phone));
@@ -56,4 +61,5 @@ public class StudentService : IStudentService
 
         return existStudent;
     }
+    #endregion
 }

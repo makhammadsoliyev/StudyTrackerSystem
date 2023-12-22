@@ -5,13 +5,18 @@ namespace StudyTrackerSystem.Services;
 
 public class TaskService : ITaskService
 {
+    #region Private fields
     private readonly List<TaskModel> tasks;
+    #endregion
 
+    #region CTOR
     public TaskService()
     {
         tasks = new List<TaskModel>();
     }
+    #endregion
 
+    #region Methods
     public TaskModel Create(TaskModel task)
     {
         tasks.Add(task);
@@ -53,4 +58,5 @@ public class TaskService : ITaskService
 
         return existTask;
     }
+    #endregion
 }

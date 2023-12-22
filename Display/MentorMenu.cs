@@ -6,13 +6,18 @@ namespace StudyTrackerSystem.Display;
 
 public class MentorMenu
 {
+    #region Private fields
     private readonly MentorService mentorService;
+    #endregion
 
+    #region CTOR
     public MentorMenu(MentorService mentorService)
     {
         this.mentorService = mentorService;
     }
+    #endregion
 
+    #region Methods
     private void Create()
     {
         string firstName = AnsiConsole.Ask<string>("[blue]FirstName: [/]");
@@ -213,4 +218,5 @@ public class MentorMenu
             }
         }
     }
+    #endregion
 }

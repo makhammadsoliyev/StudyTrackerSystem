@@ -5,17 +5,22 @@ namespace StudyTrackerSystem.Services;
 
 public class GroupService : IGroupService
 {
+    #region Private fields
     private readonly MentorService mentorService;
     private readonly StudentService studentService;
     private readonly List<Group> groups;
+    #endregion
 
+    #region CTOR
     public GroupService(MentorService mentorService, StudentService studentService)
     {
         this.mentorService = mentorService;
         this.studentService = studentService;
         this.groups = new List<Group>();
     }
+    #endregion
 
+    #region Methods
     public Mentor AddMentor(int groupId, int mentorId)
     {
         var group = groups.FirstOrDefault(g => g.GroupId == groupId)
@@ -105,4 +110,5 @@ public class GroupService : IGroupService
 
         return existGroup;
     }
+    #endregion
 }

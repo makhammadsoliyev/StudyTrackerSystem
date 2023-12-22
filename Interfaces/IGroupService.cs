@@ -4,6 +4,7 @@ namespace StudyTrackerSystem.Interfaces;
 
 public interface IGroupService
 {
+    #region Methods
     Group Create(Group group);
     Group GetById(int id);
     Group Update(int id, Group group);
@@ -14,4 +15,5 @@ public interface IGroupService
     bool DeleteStudent(int groupId, int studentId);
     Mentor AddMentor(int groupId, int mentorId);
     bool DeleteMentor(int groupId, int mentorId);
+    #endregion 
 }

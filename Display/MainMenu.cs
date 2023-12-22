@@ -4,14 +4,14 @@ namespace StudyTrackerSystem.Display;
 
 public class MainMenu
 {
-    #region Menus
+    #region Private Fields Sub Menus
     private readonly TaskMenu taskMenu;
     private readonly GroupMenu groupMenu;
     private readonly MentorMenu mentorMenu;
     private readonly StudentMenu studentMenu;
     #endregion
 
-    #region Services
+    #region Private Fields Services
     private readonly TaskService taskService;
     private readonly GroupService groupService;
     private readonly MentorService mentorService;

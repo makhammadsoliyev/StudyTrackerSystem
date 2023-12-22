@@ -5,17 +5,22 @@ namespace StudyTrackerSystem.Services;
 
 public class MentorService : IMentorService
 {
+    #region Private fields
     private readonly StudentService studentService;
     private readonly TaskService taskService;
     private readonly List<Mentor> mentors;
+    #endregion
 
+    #region CTOR
     public MentorService(StudentService studentService, TaskService taskService)
     {
         this.mentors = new List<Mentor>();
         this.taskService = taskService;
         this.studentService = studentService;
     }
+    #endregion
 
+    #region Methods
     public Mentor Create(Mentor mentor)
     {
         mentors.Add(mentor);
@@ -75,4 +80,5 @@ public class MentorService : IMentorService
 
         return existMentor;
     }
+    #endregion
 }

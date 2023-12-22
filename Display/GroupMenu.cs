@@ -6,13 +6,18 @@ namespace StudyTrackerSystem.Display;
 
 public class GroupMenu
 {
+    #region Private fields
     private readonly GroupService groupService;
+    #endregion
 
+    #region CTOR
     public GroupMenu(GroupService groupService)
     {
         this.groupService = groupService;
     }
+    #endregion
 
+    #region Methods
     private void Create()
     {
         string title = AnsiConsole.Ask<string>("[blue]Title: [/]");
@@ -303,4 +308,5 @@ public class GroupMenu
             }
         }
     }
+    #endregion
 }

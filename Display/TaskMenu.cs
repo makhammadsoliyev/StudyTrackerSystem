@@ -6,13 +6,18 @@ namespace StudyTrackerSystem.Display;
 
 public class TaskMenu
 {
+    #region
     private readonly TaskService taskService;
+    #endregion
 
+    #region CTOR
     public TaskMenu(TaskService taskService)
     {
         this.taskService = taskService;
     }
+    #endregion
 
+    #region Methods
     private void Create()
     {
         string title = AnsiConsole.Ask<string>("[blue]Title: [/]");
@@ -177,4 +182,5 @@ public class TaskMenu
             }
         }
     }
+    #endregion
 }

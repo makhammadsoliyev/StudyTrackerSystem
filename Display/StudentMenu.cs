@@ -7,13 +7,18 @@ namespace StudyTrackerSystem.Display;
 
 public class StudentMenu
 {
+    #region Private fields
     private readonly StudentService studentService;
+    #endregion
 
+    #region CTOR
     public StudentMenu(StudentService studentService)
     {
         this.studentService = studentService;
     }
+    #endregion
 
+    #region Methods
     public void Create()
     {
         string firstName = AnsiConsole.Ask<string>("[blue]FirstName: [/]");
@@ -183,4 +188,5 @@ public class StudentMenu
             }
         }
     }
+    #endregion
 }

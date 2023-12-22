@@ -5,6 +5,8 @@ namespace StudyTrackerSystem.Display;
 
 public class Selection
 {
+
+    #region Methods
     public Table DataTable(string title, params TaskModel[] tasks)
     {
         var table = new Table();
@@ -108,4 +110,5 @@ public class Selection
 
         return selection;
     }
+    #endregion
 }

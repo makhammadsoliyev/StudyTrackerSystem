@@ -24,7 +24,6 @@ public class GroupService : IGroupService
         var mentor = mentorService.GetById(mentorId);
 
         group.MentorId = mentorId;
-        mentor.GroupId = groupId;
 
         return mentor;
     }
@@ -37,7 +36,6 @@ public class GroupService : IGroupService
         var mentor = mentorService.GetById(mentorId);
 
         group.MentorId = 0;
-        mentor.GroupId = 0;
 
         return true;
     }
@@ -66,7 +64,6 @@ public class GroupService : IGroupService
             ?? throw new Exception("Group with this id was not found...");
 
         var student = studentService.GetById(studentId);
-        student.GroupId = 0;
 
         return group.students.Remove(student);
     }
@@ -75,12 +72,6 @@ public class GroupService : IGroupService
     {
         var group = groups.FirstOrDefault(g => g.Id == id)
             ?? throw new Exception("Group with this id was not found...");
-        //group.students.ForEach(student => student.GroupId = 0);
-        var students = studentService.GetAll().Where(s => s.GroupId == id).ToList();
-        students.ForEach(s => s.GroupId = 0);
-
-        var mentor = mentorService.GetById(group.MentorId);
-        mentor.GroupId = 0;
 
         return groups.Remove(group);
     }

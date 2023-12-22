@@ -5,11 +5,15 @@ namespace StudyTrackerSystem.Services;
 
 public class MentorService : IMentorService
 {
+    private readonly StudentService studentService;
+    private readonly TaskService taskService;
     private readonly List<Mentor> mentors;
 
     public MentorService()
     {
-        mentors = new List<Mentor>();
+        this.mentors = new List<Mentor>();
+        this.taskService = new TaskService();
+        this.studentService = new StudentService();
     }
 
     public Mentor Create(Mentor mentor)
@@ -37,22 +41,26 @@ public class MentorService : IMentorService
         return mentor;
     }
 
-    public List<Student> GetStudentsOfMentor(int id)
+    public TaskModel GiveTaskToStudent(int studentId, int taskId)
     {
-        var mentor = mentors.FirstOrDefault(mentors => mentors.Id == id)
-            ?? throw new Exception("Mentor with this id was not found...");
+        var student = studentService.GetById(studentId);
+        var task = taskService.GetById(taskId);
 
+        student.Tasks.Add(task);
 
+        return task;
     }
 
-    public TaskModel GiveTaskToGroup(int groupId, int taskId)
+    public Student MarkStudent(int studentId, int taskId)
     {
-        throw new NotImplementedException();
-    }
+        var student = studentService.GetById(studentId);
+        var task = student.Tasks.FirstOrDefault(task => task.Id == taskId)
+            ?? throw new Exception("This task was not given to this student...");
 
-    public Student MarkStudent(int groupId, int studentId, int taskId)
-    {
-        throw new NotImplementedException();
+        student.Tasks.Remove(task);
+        student.Points += task.Points;
+
+        return student;
     }
 
     public Mentor Update(int id, Mentor mentor)

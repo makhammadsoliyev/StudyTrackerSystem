@@ -12,5 +12,4 @@ public class Mentor
     public string FirstName { get; set; }
     public int LastName { get; set; }
     public string Course { get; set; }
-    public int GroupId { get; set; }
 }

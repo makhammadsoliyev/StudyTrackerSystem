@@ -9,7 +9,6 @@ public interface IMentorService
     Mentor Update(int id, Mentor mentor);
     bool Delete(int id);
     List<Mentor> GetAll();
-    TaskModel GiveTaskToGroup(int groupId, int taskId);
-    Student MarkStudent(int groupId, int studentId, int taskId);
-    List<Student> GetStudentsOfMentor(int id);
+    TaskModel GiveTaskToStudent(int student, int taskId);
+    Student MarkStudent(int studentId, int taskId);
 }

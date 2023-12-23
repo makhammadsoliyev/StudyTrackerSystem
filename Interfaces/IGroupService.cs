@@ -15,5 +15,5 @@ public interface IGroupService
     bool DeleteStudent(int groupId, int studentId);
     Mentor AddMentor(int groupId, int mentorId);
     bool DeleteMentor(int groupId, int mentorId);
-    #endregion  
+    #endregion 
 }
